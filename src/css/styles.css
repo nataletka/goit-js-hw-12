@@ -7,12 +7,119 @@
 /* Common styles */
 @import url('./reset.css');
 @import url('./base.css');
-@import url('./container.css');
-@import url('./animations.css');
 
-/* Sections style */
-@import url('./header.css');
-@import url('./vite-promo.css');
-@import url('./badges.css');
-@import url('./back-link.css');
-@import url('./footer.css');
+.form {
+  margin: auto;
+  margin-top: 36px;
+  margin-bottom: 32px;
+}
+input[name='search-text'] {
+  width: 272px;
+  height: 40px;
+
+  border-radius: 4px;
+  margin-right: 8px;
+  border: 1px solid #808080;
+}
+label {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #808080;
+}
+
+button {
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 91px;
+  height: 43.6px;
+  border: none;
+  background: #4e75ff;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  cursor: pointer;
+}
+.btnLoad-more {
+  display: block;
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 125px;
+  background: #4e75ff;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  margin: 0 auto;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+button:hover {
+  background: #6c8cff;
+}
+
+.gallery {
+  display: flex;
+  gap: 24px;
+  max-width: 1442px;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+  overflow: hidden;
+}
+
+.gallery-item {
+  max-width: 360px;
+}
+
+.gallery-item img {
+  display: block;
+  border: 1px solid #808080;
+  object-fit: cover;
+  width: 360px;
+  height: 200px;
+}
+
+.info {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  text-align: center;
+  padding: 8px;
+  border: 1px solid #808080;
+}
+.loader {
+  display: block;
+  position: relative;
+  height: 12px;
+  width: 80%;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.loader:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0;
+  background: #ff3d00;
+  animation: 6s prog ease-in infinite;
+}
+
+@keyframes prog {
+  to {
+    width: 100%;
+  }
+}
+.hidden {
+  display: none;
+}
