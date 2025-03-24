@@ -35,7 +35,7 @@ function createImageMarkup(images) {
 }
 
 export function renderGallery(images) {
-  gallery.innerHTML = createImageMarkup(images);
+  gallery.insertAdjacentHTML('beforeend', createImageMarkup(images));
   lightbox.refresh();
 }
 

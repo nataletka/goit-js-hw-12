@@ -31,6 +31,7 @@ async function findFoto(event) {
   page = 1;
   loader.classList.remove('hidden');
   clearGallery();
+  loadPage.classList.add('hidden');
   try {
     const data = await getPhoto(query, page, per_page);
     if (data.hits.length === 0) {
@@ -39,13 +40,16 @@ async function findFoto(event) {
         message:
           'There are no images matching your search query. Please try again!',
       });
+      loader.classList.add('hidden');
       return;
     }
 
     totalPage = Math.ceil(data.totalHits / per_page);
     renderGallery(data.hits);
 
-    loadPage.classList.toggle('hidden', page >= totalPage);
+    if (page < totalPage) {
+      loadPage.classList.remove('hidden');
+    }
   } catch (error) {
     console.error('Failed to fetch images. Try again later!', error);
   } finally {
@@ -78,9 +82,9 @@ async function LoadPage() {
 }
 
 function smoothScroll() {
-  const firstCard = document.querySelector('.gallery-item');
-  if (firstCard) {
-    const cardHeight = firstCard.getBoundingClientRect().height;
+  const items = document.querySelectorAll('.gallery-item');
+  if (items.length > 0) {
+    const cardHeight = items[0].getBoundingClientRect().height;
     window.scrollBy({
       top: cardHeight * 2,
       behavior: 'smooth',
